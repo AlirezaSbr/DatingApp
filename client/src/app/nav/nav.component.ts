@@ -15,8 +15,7 @@ export class NavComponent {
 
   constructor(
     public accountService: AccountService,
-    private router: Router,
-    private toastr: ToastrService
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -25,10 +24,6 @@ export class NavComponent {
     this.accountService.login(this.model).subscribe(
       (response) => {
         this.router.navigateByUrl('/members');
-      },
-      (error) => {
-        console.log(error);
-        this.toastr.error(error.error);
       }
     );
   }
